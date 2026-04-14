@@ -36,7 +36,7 @@ def get_article_content(url: str) -> dict:
 
     Returns:
         dict with keys:
-            - text: article body (up to 8000 chars)
+            - text: article body (up to 15000 chars)
             - images: list of image URLs (up to 5)
     """
     cache = _load_cache()
@@ -85,7 +85,7 @@ def _parse_html(html: str) -> dict:
             if src and src.startswith("http"):
                 images.append(src)
 
-        return {"text": clean_text[:8000], "images": images[:5]}
+        return {"text": clean_text[:15000], "images": images[:5]}
     except Exception as e:
         logger.error(f"HTML parse error: {e}")
         return {"text": html[:3000], "images": []}
