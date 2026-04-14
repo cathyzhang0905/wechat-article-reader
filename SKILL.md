@@ -1,6 +1,6 @@
 ---
 name: wechat-article-reader
-description: Use when the user shares a WeChat public account article URL (mp.weixin.qq.com) and wants to read, summarize, or analyze its content. Also use when the user wants to search for WeChat articles on a topic during research.
+description: Use when (1) the user shares a WeChat article URL (mp.weixin.qq.com), or (2) the user explicitly asks to look at WeChat public accounts or find WeChat articles on a topic (e.g. "看看微信上有没有", "搜一下公众号", "微信上的相关文章").
 ---
 
 # WeChat Article Reader
