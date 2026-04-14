@@ -1,8 +1,8 @@
 # wechat-article-reader
 
-A [Claude Code](https://claude.ai/code) skill that lets Claude read WeChat public account articles on your behalf.
+A [Claude Code](https://claude.ai/code) skill that lets Claude read and search WeChat public account articles on your behalf.
 
-一个 [Claude Code](https://claude.ai/code) skill，让 Claude 帮你阅读、总结微信公众号文章。
+一个 [Claude Code](https://claude.ai/code) skill，让 Claude 帮你阅读、搜索和总结微信公众号文章。
 
 ---
 
@@ -50,17 +50,29 @@ That's it. / 安装完成。
 
 ## Usage / 使用方法
 
-Just paste a WeChat article URL into Claude Code and ask Claude to read or summarize it.
+### Mode 1: Read a given URL / 读取指定文章
 
-在 Claude Code 里把微信文章链接发给 Claude，让它帮你阅读或总结即可。
+Paste a WeChat article URL and ask Claude to read or summarize it.
 
-**Example / 示例：**
+把微信文章链接发给 Claude，让它帮你阅读或总结。
 
 > 帮我读一下这篇文章：https://mp.weixin.qq.com/s/xxxxxxxx
 
-Claude will automatically use this skill to fetch and parse the article.
+### Mode 2: Search WeChat articles / 搜索公众号文章
 
-Claude 会自动调用这个 skill 抓取并解析文章内容。
+Ask Claude to search for WeChat articles on a topic. Claude will search
+`site:mp.weixin.qq.com`, pick the most relevant results, fetch them, and
+synthesize the content into a response.
+
+让 Claude 搜索某个话题的微信公众号文章。Claude 会自动搜索、挑选相关链接、
+读取正文并综合成回答。
+
+> 帮我搜一下微信上关于 Claude Code 最佳实践的文章
+
+> 看看微信公众号上有没有关于 XX 的内容
+
+The skill triggers when you explicitly mention WeChat / 公众号 in your request.
+说到"微信"、"公众号"时 skill 会自动触发，普通搜索不会误触发。
 
 ---
 
