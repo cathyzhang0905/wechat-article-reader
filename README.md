@@ -1,8 +1,18 @@
 # wechat-article-reader
 
-A [Claude Code](https://claude.ai/code) skill that lets Claude read and search WeChat public account articles on your behalf.
+A [Claude Code](https://claude.ai/code) skill that gives Claude the ability to **read** and **search** WeChat public account articles — no token, no login required.
 
-一个 [Claude Code](https://claude.ai/code) skill，让 Claude 帮你阅读、搜索和总结微信公众号文章。
+一个 [Claude Code](https://claude.ai/code) skill，让 Claude 具备**阅读**和**搜索**微信公众号文章的能力——无需 token，无需登录。
+
+---
+
+## Capabilities / 核心能力
+
+| | English | 中文 |
+|---|---|---|
+| 📖 **Read** | Fetch and parse any public WeChat article from a URL | 抓取并解析任意公开微信文章 |
+| 🔍 **Search** | Search WeChat articles by topic, then read the top results | 按话题搜索公众号文章并读取正文 |
+| ⚡ **Cache** | Repeat fetches are instant — results cached locally | 重复抓取秒返回，结果本地缓存 |
 
 ---
 
@@ -14,9 +24,7 @@ your machine**, so WeChat sees a normal browser-like request and returns the con
 
 你直接把微信文章链接发给 Claude，Claude 是抓不到内容的——微信会屏蔽来自 Anthropic
 服务器的请求。这个 skill 让抓取请求**在你本地机器上执行**，微信以为是普通用户在浏览器里
-打开文章，就会正常返回内容。
-
-**No token or login required. / 不需要 token，不需要登录微信后台。**
+打开文章，正常返回内容。
 
 Only works with public share URLs (`mp.weixin.qq.com/s/...`).
 仅支持公开分享链接（`mp.weixin.qq.com/s/...`），不支持仅关注者可见的文章。
@@ -50,37 +58,37 @@ That's it. / 安装完成。
 
 ## Usage / 使用方法
 
-### Mode 1: Read a given URL / 读取指定文章
+### 📖 Read / 阅读
 
-Paste a WeChat article URL and ask Claude to read or summarize it.
+Paste any WeChat article URL — Claude will fetch, parse, and summarize it.
 
-把微信文章链接发给 Claude，让它帮你阅读或总结。
+粘贴任意微信文章链接，Claude 自动抓取、解析、总结。
 
-> 帮我读一下这篇文章：https://mp.weixin.qq.com/s/xxxxxxxx
+```
+帮我读一下这篇文章：https://mp.weixin.qq.com/s/xxxxxxxx
+```
 
-### Mode 2: Search WeChat articles / 搜索公众号文章
+```
+总结一下这篇文章的核心观点：https://mp.weixin.qq.com/s/xxxxxxxx
+```
 
-Ask Claude to search for WeChat articles on a topic. Claude will search
-`site:mp.weixin.qq.com`, pick the most relevant results, fetch them, and
-synthesize the content into a response.
+### 🔍 Search / 搜索
 
-让 Claude 搜索某个话题的微信公众号文章。Claude 会自动搜索、挑选相关链接、
-读取正文并综合成回答。
+Ask Claude to find WeChat articles on any topic. Claude will search, pick the most
+relevant results, read each one, and synthesize a response.
 
-> 帮我搜一下微信上关于 Claude Code 最佳实践的文章
+让 Claude 搜索某个话题的公众号文章。Claude 会自动搜索、挑选、读取，并综合成回答。
 
-> 看看微信公众号上有没有关于 XX 的内容
+```
+帮我搜一下微信上关于 Claude Code 最佳实践的文章
+```
 
-The skill triggers when you explicitly mention WeChat / 公众号 in your request.
-说到"微信"、"公众号"时 skill 会自动触发，普通搜索不会误触发。
+```
+看看微信公众号上有没有关于 XX 的内容
+```
 
----
-
-## Caching / 缓存
-
-Fetched articles are cached in `article_cache.json`. Re-fetching the same URL is instant.
-
-抓取过的文章会缓存到 `article_cache.json`，重复请求同一链接无需再次网络请求。
+> **Trigger / 触发条件**：The skill activates when you explicitly mention WeChat or 公众号.
+> 显式提到"微信"或"公众号"时触发，普通搜索不会误触发。
 
 ---
 
